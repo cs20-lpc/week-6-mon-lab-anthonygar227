@@ -24,6 +24,18 @@ T findMaxRecTail(const T[], const int, int = 0);
  * Output:
  * An integer to signal to the OS the exit code.
 *******************************************************************************/
+template <typename T>
+T findMaxRecTail(const T arr[], const int SIZE, int i) {
+    if (i == SIZE - 1) {
+        return arr[i];
+    }
+    T restMax = findMaxRecTail(arr, SIZE, i + 1);
+    if (arr[i] < restMax) {
+        return restMax;
+    } else {
+        return arr[i];
+    }
+}
 
 int main() {
     // create the array
